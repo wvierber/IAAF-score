@@ -7,8 +7,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import org.omg.CORBA.portable.ValueOutputStream;
-
 public class FindScore extends Table {
 
 	// protected static String[][] table = getTable();
