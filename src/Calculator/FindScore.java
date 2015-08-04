@@ -1,4 +1,5 @@
 package Calculator;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,8 +17,6 @@ public class FindScore extends Table {
 	static int colmnr = 0;
 	static int score = 0;
 
-	// Snelwandelen heeft weer andere notaties, nog niet van toepassing!
-	// vanaf 10km t.e.m. Marathon heeft geen honderdsten, nog niet van toepassing!
 	static int notatie;
 	static String not0 = "s.SS";
 	static String not1 = "ss.SS";
@@ -30,12 +29,20 @@ public class FindScore extends Table {
 	static boolean kampnr = false;
 
 	static SimpleDateFormat sdf;
+	
+	// Sprint e.g. 100m, 100mH,...
 	static SimpleDateFormat sdf0 = new SimpleDateFormat("s.SS");
+	// Longer spurt diciplines
 	static SimpleDateFormat sdf1 = new SimpleDateFormat("ss.SS");
+	// e.g. 400m -> 3000m (fast),...
 	static SimpleDateFormat sdf2 = new SimpleDateFormat("m:ss.SS");
+	// e.g. 3000m (slower), 5000m,...
 	static SimpleDateFormat sdf3 = new SimpleDateFormat("mm:ss.SS");
-	static SimpleDateFormat sdf4 = new SimpleDateFormat("H:mm:ss.SS");
-	static SimpleDateFormat sdf5 = new SimpleDateFormat("HH:mm:ss.SS");
+	// Road races and walking
+	static SimpleDateFormat sdf4 = new SimpleDateFormat("H:mm:ss");
+	// longer and or slower road races and walking
+	static SimpleDateFormat sdf5 = new SimpleDateFormat("HH:mm:ss");
+
 	static int points;
 
 	public static void disc() throws IOException {
@@ -108,11 +115,14 @@ public class FindScore extends Table {
 				sdf = sdf3;
 				notatie = 3;
 				break;
-			case 10:
+			}
+		} else if (perf.contains(":")) {
+			switch (pfl) {
+			case 7:
 				sdf = sdf4;
 				notatie = 4;
 				break;
-			case 11:
+			case 8:
 				sdf = sdf5;
 				notatie = 5;
 				break;
@@ -191,14 +201,14 @@ public class FindScore extends Table {
 		System.out.println("Druk 'enter' voor een nieuwe opzoeking");
 		String input = in.readLine();
 		if (input != null) {
-			
+
 			getScore();
 		}
 
 	}
 
 	public static void main(String[] args) throws IOException, ParseException {
-		read("men.txt");
+		read("women.txt");
 		filterData();
 
 		System.out.println("Find score... \n");

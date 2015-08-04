@@ -18,10 +18,10 @@ public class Table {
 
 	public Table() {
 	}
-	
+
 	public static String [][] getTable(){
 		return table;
-		
+
 	}
 
 	public static void printRawData() {
@@ -257,27 +257,5 @@ public class Table {
 		out.close();
 		System.out.println("splitteData is opgeslagen: " + "\t" + name);
 	}
-
-	// public static void main(String[] args) throws IOException {
-		/*
-		 * read("2008_men.txt"); saveRawData("2008_RawData_men.txt");
-		 * saveSplittedData("2008_Splitted_men.txt");
-		 * saveData("2008_Data_men.txt"); filterData(); printSplittedData(); //
-		 * saveRawData("RawData_men.txt");
-		 * saveSplittedData("2008_Splitted_men.txt");
-		 * saveData("2008_Data_Men.txt"); saveTable("2008_Table_men.txt");
-		 * System.out.println("Done!");
-		 */
-
-		/*
-		read("men.txt");
-		filterData(); // saveRawData("RawData_men.txt"); //
-		// saveSplittedData("Splitted_men.txt"); // saveData("Data_Men.txt");
-		// saveTable("Table_men.txt");
-		System.out.println("Done!");
-		
-		*/
-
-	// }
 
 }
